@@ -16,12 +16,12 @@
         <header>
             <h1>To Do List</h1>
             <input type="text" v-model.trim="userToDo" @keyup.enter="sendListItem">
-            <button @click="sendListItem">Aggiungi</button>
+            <button @click="sendListItem">Aggiungi Alla Lista</button>
         </header>
         <main>
             <div class="todolist">
                 <ul>
-                    <li v-for="(item) in todoList">
+                    <li v-for="(item, index) in todoList" @click="swichDone(index)">
                         <span :class="(item.done) ? 'line-through' : '' ">
                             {{ item.text }}
                         </span>
