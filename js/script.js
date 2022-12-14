@@ -33,11 +33,20 @@ createApp({
 	},
 
     methods: {
+
 		removeToDo(itemRemove){
 			const removeCheck = this.todoList.indexOf(itemRemove);
-			if (removeCheck > -1 ){
+			if (removeCheck > - 1 ){
 				this.todoList.splice(removeCheck, 1)
 			}
+		},
+
+		sendListItem(){
+			const obj = {};
+			obj['text'] = this.userToDo.charAt(0).toUpperCase() + this.userToDo.substring(1).toLowerCase()
+			obj['done'] = false
+			this.todoList.push(obj)
 		}
     },
+
 }).mount ('#app')
