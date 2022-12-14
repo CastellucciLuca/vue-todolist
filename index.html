@@ -12,10 +12,26 @@
 </head>
 
 <body>
+    <div id="app">
+        <header>
+            <h1>To-Do List</h1>
+        </header>
+        <main d-flex flex-center>
+            <div class="todolist">
+                <ul>
+                    <li v-for="(item) in todoList">
+                        <span :class="(item.done) ? 'line-through' : '' ">
+                            {{ item.text }}
+                        </span>
 
-
+                        <i class="fa-solid fa-xmark" @click="removeToDo(item)"></i>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <!--VUE 3/JS LINKS-->
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="js/script.js"></script>
 </body>
-
 </html>
